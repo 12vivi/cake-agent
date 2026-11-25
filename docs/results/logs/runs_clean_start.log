@@ -1,0 +1,25 @@
+[cake run 0] best 1.248x, 9/140 device failures, plateau at 613399, 90.5 s
+[cake run 1] best 1.268x, 6/136 device failures, plateau at 590170, 88.3 s
+[cake run 2] best 1.250x, 5/136 device failures, plateau at 803295, 131.5 s
+[raw run 0] best 1.241x, 89/136 device failures, plateau at 666599, 41.5 s
+[raw run 1] best 1.197x, 93/140 device failures, plateau at 714033, 29.1 s
+[raw run 2] best 1.252x, 91/146 device failures, plateau at 699939, 38.1 s
+{
+  "cake": {
+    "plateau": "3/3",
+    "active_evolve_h": "0.025 [0.025, 0.037]",
+    "best_at_budget": "1.250 [1.248, 1.268]",
+    "device_failure_rate": 0.049,
+    "verifier_rejects": 259,
+    "candidates": 872
+  },
+  "raw": {
+    "plateau": "3/3",
+    "active_evolve_h": "0.011 [0.008, 0.012]",
+    "best_at_budget": "1.241 [1.197, 1.252]",
+    "device_failure_rate": 0.647,
+    "verifier_rejects": 0,
+    "candidates": 844
+  }
+}
+exit=0

@@ -1,0 +1,69 @@
+  [dispatch] seed stages1: correct on 19/19 tuning shapes, gspan 0.918
+  [dispatch] seed specialized: correct on 19/19 tuning shapes, gspan 1.054
+  [dispatch] seed bn64_8warps: correct on 19/19 tuning shapes, gspan 0.912
+  [dispatch] seed persistent_smem: correct on 12/19 tuning shapes, gspan 0.991
+{
+  "manifest": {
+    "domain_hash": "e82dc5f35368",
+    "shapes": 24,
+    "holdout": 0.3
+  },
+  "routes": [
+    {
+      "route": "persistent_smem",
+      "guard": [
+        "D128|K<=2048|aligned"
+      ]
+    },
+    {
+      "route": "specialized",
+      "guard": [
+        "(default: any applicable shape)"
+      ]
+    },
+    {
+      "route": "baseline_fallback",
+      "guard": [
+        "(fallback)"
+      ]
+    }
+  ],
+  "tuning": {
+    "shapes": 19,
+    "incorrect": 0,
+    "fallback_used": 0,
+    "guard_rejections": 0,
+    "guard_overlaps": 0,
+    "gspan": 1.0591936927336285,
+    "per_route": {
+      "specialized": {
+        "shapes": 17,
+        "gspan": 1.05264062227172
+      },
+      "persistent_smem": {
+        "shapes": 2,
+        "gspan": 1.1165677954167457
+      }
+    }
+  },
+  "held_out": {
+    "shapes": 5,
+    "incorrect": 0,
+    "fallback_used": 0,
+    "guard_rejections": 0,
+    "guard_overlaps": 0,
+    "gspan": 0.9918763328405074,
+    "per_route": {
+      "specialized": {
+        "shapes": 5,
+        "gspan": 0.9918763328405074
+      }
+    }
+  },
+  "fallback_check": {
+    "shapes": 1,
+    "incorrect": 0,
+    "gspan": 0.8315450598083933
+  },
+  "wall_s": 8.4
+}

@@ -1,0 +1,151 @@
+{
+  "manifest": {
+    "domain_hash": "e82dc5f35368",
+    "shapes": 24,
+    "holdout": 0.3
+  },
+  "routes": [
+    {
+      "route": "persistent_smem",
+      "guard": [
+        "D128|K<=2048|aligned"
+      ]
+    },
+    {
+      "route": "specialized",
+      "guard": [
+        "(default: any applicable shape)"
+      ]
+    },
+    {
+      "route": "baseline_fallback",
+      "guard": [
+        "(fallback)"
+      ]
+    }
+  ],
+  "selection": {
+    "default": "specialized",
+    "bucket_winners": {
+      "D128|K<=2048|aligned": "persistent_smem"
+    },
+    "excluded": {},
+    "buckets_below_support": [
+      "D64|K<=512|aligned",
+      "D128|K<=512|aligned",
+      "D128|K<=2048|ragged",
+      "D128|K>2048|aligned",
+      "D256|K<=512|aligned"
+    ]
+  },
+  "tuning": {
+    "shapes": 19,
+    "incorrect": 0,
+    "fallback_used": 0,
+    "guard_rejections": 0,
+    "guard_overlaps": 0,
+    "gspan": 1.0591936927336285,
+    "per_route": {
+      "specialized": {
+        "shapes": 17,
+        "gspan": 1.05264062227172
+      },
+      "persistent_smem": {
+        "shapes": 2,
+        "gspan": 1.1165677954167457
+      }
+    }
+  },
+  "held_out": {
+    "shapes": 5,
+    "incorrect": 0,
+    "fallback_used": 0,
+    "guard_rejections": 0,
+    "guard_overlaps": 0,
+    "gspan": 0.9918763328405074,
+    "per_route": {
+      "specialized": {
+        "shapes": 5,
+        "gspan": 0.9918763328405074
+      }
+    }
+  },
+  "fallback_check": {
+    "shapes": 1,
+    "incorrect": 0,
+    "gspan": 0.8315450598083933
+  },
+  "held_out_results": [
+    {
+      "shape": {
+        "B": 4,
+        "N": 4000,
+        "K": 256,
+        "D": 64
+      },
+      "route": "specialized",
+      "ok": true,
+      "us": 5.940599155064195,
+      "baseline_us": 4.936305571463587,
+      "speedup": 0.8309440584382004,
+      "note": ""
+    },
+    {
+      "shape": {
+        "B": 8,
+        "N": 16384,
+        "K": 256,
+        "D": 128
+      },
+      "route": "specialized",
+      "ok": true,
+      "us": 17.01102550544565,
+      "baseline_us": 16.55567475201498,
+      "speedup": 0.9732320221796797,
+      "note": ""
+    },
+    {
+      "shape": {
+        "B": 8,
+        "N": 16384,
+        "K": 1000,
+        "D": 128
+      },
+      "route": "specialized",
+      "ok": true,
+      "us": 30.640395276312162,
+      "baseline_us": 34.20639319716875,
+      "speedup": 1.1163822427451984,
+      "note": ""
+    },
+    {
+      "shape": {
+        "B": 4,
+        "N": 4000,
+        "K": 4096,
+        "D": 128
+      },
+      "route": "specialized",
+      "ok": true,
+      "us": 23.22167501359722,
+      "baseline_us": 27.54391098877023,
+      "speedup": 1.186129380100366,
+      "note": ""
+    },
+    {
+      "shape": {
+        "B": 4,
+        "N": 4000,
+        "K": 256,
+        "D": 256
+      },
+      "route": "specialized",
+      "ok": true,
+      "us": 7.359324100134684,
+      "baseline_us": 6.597697622703159,
+      "speedup": 0.8965086376046972,
+      "note": ""
+    }
+  ],
+  "wall_s": 8.4
+}

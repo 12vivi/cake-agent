@@ -1,0 +1,85 @@
+{
+  "workload": "kmeans_assign",
+  "llm": "scripted",
+  "budget_tokens": 1500000,
+  "runs": [
+    {
+      "condition": "fixed_harness",
+      "run": 0,
+      "best_speedup": 1.2504170509336054,
+      "device_failure_rate_early": 0.038,
+      "device_failure_rate_late": 0.036,
+      "device_failures": 4,
+      "device_evals": 108,
+      "rules_adopted": [],
+      "rules_rejected": [],
+      "calibration_version": 0,
+      "tactics": 0,
+      "harness_version": 0
+    },
+    {
+      "condition": "fixed_harness",
+      "run": 1,
+      "best_speedup": 1.2664334071644014,
+      "device_failure_rate_early": 0.06,
+      "device_failure_rate_late": 0.0,
+      "device_failures": 3,
+      "device_evals": 92,
+      "rules_adopted": [],
+      "rules_rejected": [],
+      "calibration_version": 0,
+      "tactics": 0,
+      "harness_version": 0
+    },
+    {
+      "condition": "co_evolving",
+      "run": 0,
+      "best_speedup": 1.2504170509336054,
+      "device_failure_rate_early": 0.038,
+      "device_failure_rate_late": 0.0,
+      "device_failures": 2,
+      "device_evals": 107,
+      "rules_adopted": [
+        "HW.TMEM_LANES"
+      ],
+      "rules_rejected": [
+        {
+          "rule": "HW.TMEM_LANES_STRICT",
+          "corpus_false_positives": [
+            "kmeans_persistent_smem_8warps",
+            "kmeans_bn256_chunked"
+          ],
+          "recall": 0.5
+        }
+      ],
+      "calibration_version": 1,
+      "tactics": 2,
+      "harness_version": 5
+    },
+    {
+      "condition": "co_evolving",
+      "run": 1,
+      "best_speedup": 1.2501531602256908,
+      "device_failure_rate_early": 0.04,
+      "device_failure_rate_late": 0.0,
+      "device_failures": 2,
+      "device_evals": 103,
+      "rules_adopted": [
+        "HW.TMEM_LANES"
+      ],
+      "rules_rejected": [
+        {
+          "rule": "HW.TMEM_LANES_STRICT",
+          "corpus_false_positives": [
+            "kmeans_persistent_smem_8warps",
+            "kmeans_bn256_chunked"
+          ],
+          "recall": 0.0
+        }
+      ],
+      "calibration_version": 3,
+      "tactics": 3,
+      "harness_version": 7
+    }
+  ]
+}

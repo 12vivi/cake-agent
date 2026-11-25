@@ -1,0 +1,5 @@
+[fixed_harness run 0] best 1.250x, device failure rate 4% -> 4%, rules adopted [], rejected []
+[fixed_harness run 1] best 1.266x, device failure rate 6% -> 0%, rules adopted [], rejected []
+[co_evolving run 0] best 1.250x, device failure rate 4% -> 0%, rules adopted ['HW.TMEM_LANES'], rejected ['HW.TMEM_LANES_STRICT']
+[co_evolving run 1] best 1.250x, device failure rate 4% -> 0%, rules adopted ['HW.TMEM_LANES'], rejected ['HW.TMEM_LANES_STRICT']
+exit=0
